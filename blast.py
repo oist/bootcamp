@@ -12,11 +12,13 @@ def make_script(query_path, db_path, output="", out_format=0):
                         Format description here https://www.ncbi.nlm.nih.gov/books/NBK279684/
     """
 
-    script = "blastn"
-    script = script + " -db " + db_path
-    script = script + " -query " + query_path
+    script = "module load ncbi-blast\n\n"
+    
+    script += "blastn"
+    script += " -db " + db_path
+    script += " -query " + query_path
     if output != "":
-        script = script + " -out " + output
-    script = script + " -outfmt {}".format(out_format)
+        script += " -out " + output
+    script += " -outfmt {}".format(out_format)
 
     return script
