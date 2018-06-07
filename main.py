@@ -44,7 +44,7 @@ import sbatch
 
 fmt = 6 # tabular output
 name = "BLAST" # Name of the job
-mail = "jeremie.gillet@oist.jp"
+mail = "" # Add your email here
 
 blastscript = blast.make_script(query_path, db_path, result_path, fmt)
 
