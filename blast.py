@@ -1,5 +1,3 @@
-#! /usr/local/bin/python3
-
 """
 This file is a library for creating a BLAST query
 """
