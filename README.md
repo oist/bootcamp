@@ -1,6 +1,8 @@
 # bootcamp
 Code for the Programming Bootcamp
 
+Data and commands are adapted from [here](https://github.com/edamame-course/BLAST-tutorial/blob/master/running-BLAST.md)
+
 Steps to get things to work
 
 1. Clone repo on Tombo `git clone https://github.com/oist/bootcamp.git` (note the use of the full URL) then `cd bootcamp`
