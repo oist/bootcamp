@@ -1,6 +1,8 @@
 # bootcamp
 Code for the Programming Bootcamp
 
+Data and commands are adapted from [here](https://github.com/edamame-course/BLAST-tutorial/blob/master/running-BLAST.md)
+
 Steps to get things to work
 
 0. Log into Tombo and create/move to a folder in `/work/scratch/`
