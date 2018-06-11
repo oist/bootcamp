@@ -8,17 +8,16 @@ def make_script(query_path, db_path, output="", out_format=0):
     Input: query_path - Path of the FASTA file to query
            db_path - Path to the database to query in
            output - name of the output file. Default is blank (output to screen)
-           out_format - format of the output. Default is 0.
+           out_format - format of the output.
                         Format description here https://www.ncbi.nlm.nih.gov/books/NBK279684/
     """
 
-    script = "module load ncbi-blast\n\n"
-    
-    script += "blastn"
-    script += " -db " + db_path
-    script += " -query " + query_path
     if output != "":
-        script += " -out " + output
-    script += " -outfmt {}".format(out_format)
+         output= " -out {}".format(output)
 
-    return script
+    modules = "module load ncbi-blast"
+
+    blast = "blastn -db {db} -query {qry} -outfmt {fmt} {out}"\
+            .format(qry=query_path, db=db_path, out=output, fmt=out_format)
+
+    return "{}\n\n{}".format(modules, blast)
