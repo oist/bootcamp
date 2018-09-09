@@ -9,8 +9,7 @@ import fasta
 raw_data_path = "data/raw/"
 db_path = "data/database/My16sAmplicon"
 query_path = "data/MyQuery.fa"
-template = "sbatch_template.txt"
-script_output = "data/blastjob.sh"
+script_output = "data/blastjob.slurm"
 result_path = "data/results.out"
 
 species = {}
@@ -40,14 +39,13 @@ print("\nQuery FASTA file written in {}.".format(query_path))
 # Prepare a SLURM file to run the query on Tombo
 
 import blast
-import sbatch
 
 fmt = 6 # tabular output
 name = "BLAST" # Name of the job
 mail = "" # Add your email here
 
-blastscript = blast.make_script(query_path, db_path, result_path, fmt)
+blastscript = blast.blast_query(query_path, db_path, result_path, fmt)
 
-sbatch.create_script(template, script_output, name, mail, blastscript)
+blast.sbtach_job(script_output, name, mail, blastscript)
 
 print("sbatch script created. Run with \"sbatch {}\"".format(script_output))
