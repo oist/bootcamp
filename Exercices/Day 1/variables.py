@@ -1,7 +1,8 @@
+# Run these in the console
+# Warning, a few questions are trick questions
 
 #Ex: give the value 3 to a, 5 to b and 0 to c
 a, b, c = 3, 5, 0
-
 
 #Ex: divide a by b and b by a
 a/b
@@ -34,12 +35,13 @@ a*c*d//b
 a = 7
 
 #Ex: add 10 to a
+a += 10
 
 #Ex: check the type of a
 type(a)
 
 #Ex: without touching the "7" key on your keyboard, set b to the float value of 7
-b = 1.0 * a
+b = a - 10.
 
 #Ex: check that b is a float
 type(b)
@@ -51,9 +53,8 @@ type(a+b)
 bool("")
 bool("anything else")
 
-#Ex: ehich string can be cast to int?
+#Ex: which string can be cast to int?
 int("12")
-
 
 #Ex: what is the largest int you can define?
 #Ans: something big enough to use all your computer's memory
@@ -69,4 +70,3 @@ a = 100*"I like Skill Pills! "
 #Ex: set b to True using only a
 a = False
 b = not a
-

@@ -1,3 +1,6 @@
+# Many of the following functions are re-implemetations of built-in functions,
+# for example "my_sum" is the same as "sum". Do not use the built-in versions.
+
 def my_phrase():
     """Prints a phrase."""
 
@@ -45,7 +48,6 @@ def my_mean(my_list):
     """
 
     return my_sum(my_list)/len(my_list)
-    #or return sum(my_list)/len(my_list)
 
 
 
@@ -123,13 +125,12 @@ def my_reverse(my_string):
 
     return (string) -- Reversed string."""
 
-    my_reversed_string = ""
-
     lst = [my_string[i] for i in range(len(my_string)-1, -1, -1)]
     my_reversed_string = "".join(lst)
 
     return my_reversed_string
     #or retun my_string[::-1]
+    #or return "".join(reversed(x))
 
 
 
@@ -171,5 +172,3 @@ def my_replace(my_string, my_old_letter, my_new_letter):
             my_string = my_string[:i] + my_new_letter + my_string[i+1:]
 
     return my_string
-
-
