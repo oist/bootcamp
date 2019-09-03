@@ -1,13 +1,17 @@
-########## STEP 3 ##########
-# How many species had a hit?
-# How many hits per species?
-# What is the average alignment percentage per species?
+"""
+How many species had a hit?
+How many hits per species?
+What is the average alignment percentage per species?
+"""
 
 species = {}
 result = "data/results.out"
 
 with open(result) as f:
     for line in f:
+        if line[0] == "#":
+            continue
+            
         row = line.strip().split("\t") # Getting each row and spliting it by tabulations
 
         alignments = species.get(row[0], []) # Retrieve existing values, or an empty list

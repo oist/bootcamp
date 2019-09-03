@@ -1,9 +1,12 @@
+import os
+import fasta
+
 """
-This file is a library for manipulating FASTA files.
-It can:
-  - Read FASTA files and save them as dictionnaries
-  - Filter sequences in a dictionnary
-  - Write FASTA files from dictionnaries
+FASTA file parsing and filtering
+
+We have several files with raw sequences we want to search
+We are only interesetd in specific sequences
+We need to the files, extract the relevant sequences and write them to a new file
 """
 
 def parse_FASTA(filepath):
@@ -51,3 +54,28 @@ def write_FASTA(dic, filepath):
             while seq != "":                    # while there is some sequence left
                 f.write(seq[:70] + "\n")            # write 70 characters
                 seq = seq[70:]                      # cuts the 70 charachers
+
+raw_data_path = "data/raw/"
+species = {}
+for root, dirs, files in os.walk(raw_data_path):
+    for file in files:
+        if ".fa" in file:
+            tmp = fasta.parse_FASTA(root + file)
+            species.update(tmp) # Adding the values of tmp to d
+
+def filter_function(header):
+    return "fungi" in header or "Bacillus" in header
+
+print("\nRaw sequences before filtering:")
+for h in species:
+    print(h)
+
+species = fasta.filter_FASTA(species, filter_function)
+
+print("\nRaw sequences after filtering:")
+for h in species:
+    print(h)
+
+query_path = "data/MyQuery.fa"
+fasta.write_FASTA(species, query_path)
+print("\nQuery FASTA file written in {}.".format(query_path))
