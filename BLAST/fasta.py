@@ -1,5 +1,4 @@
 import os
-import fasta
 
 """
 FASTA file parsing and filtering
@@ -60,7 +59,7 @@ species = {}
 for root, dirs, files in os.walk(raw_data_path):
     for file in files:
         if ".fa" in file:
-            tmp = fasta.parse_FASTA(root + file)
+            tmp = parse_FASTA(root + file)
             species.update(tmp) # Adding the values of tmp to d
 
 def filter_function(header):
@@ -70,12 +69,12 @@ print("\nRaw sequences before filtering:")
 for h in species:
     print(h)
 
-species = fasta.filter_FASTA(species, filter_function)
+species = filter_FASTA(species, filter_function)
 
 print("\nRaw sequences after filtering:")
 for h in species:
     print(h)
 
 query_path = "data/MyQuery.fa"
-fasta.write_FASTA(species, query_path)
+write_FASTA(species, query_path)
 print("\nQuery FASTA file written in {}.".format(query_path))
