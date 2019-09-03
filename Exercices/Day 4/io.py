@@ -1,10 +1,22 @@
+"""     .
+       ,O,
+      ,OOO,
+'oooooOOOOOooooo'
+  `OOOOOOOOOOO`
+    `OOOOOOO`
+    OOOO'OOOO
+   OOO'   'OOO
+  O'         'O
 """
-Creates a file 'squares.txt' consisting of the first 5 square numbers
+
 """
-with open("squares.txt", "w") as f:
-    for i in range(1,6):
-        f.write("{}\n".format(i*i))
-print("see squares.txt")
+Create a file 'numbers.txt' consisting of the number 1 to 100 on different lines
+"""
+with open("numbers.txt", "w") as f:
+    for i in range(1,101):
+        f.write("{}\n".format(i))
+print("see numbers.txt")
+
 
 """
 Open the file 'edward_lear.txt'. Print every line preceded by its line number.
@@ -13,6 +25,7 @@ Hint: use enumerate
 with open("edward_lear.txt") as f:
     for i, line in enumerate(f):
         print("{} {}".format(i+1, line.strip()))
+
 
 """
 Create a file edward_lear_shouted.txt where all words from edward_lear.txt
@@ -23,8 +36,21 @@ with open("edward_lear.txt") as f:
 
 with open("edward_lear_shouted.txt", "w") as f:
     f.write(lear.upper())
+
 print("see edward_lear_shouted.txt")
 
+
+
+"""     .                 .
+       ,O,               ,O,
+      ,OOO,             ,OOO,
+'oooooOOOOOooooo' 'oooooOOOOOooooo'
+  `OOOOOOOOOOO`     `OOOOOOOOOOO`
+    `OOOOOOO`         `OOOOOOO`
+    OOOO'OOOO         OOOO'OOOO
+   OOO'   'OOO       OOO'   'OOO
+  O'         'O     O'         'O
+"""
 
 """
 Read the file simplemaps-worldcities-basic.csv.
@@ -37,7 +63,6 @@ with open("simplemaps-worldcities-basic.csv") as f: # Reading the file
         data = line.strip().split(",") # split the line
         city = data[1]
         print(city) # Select and print city name
-
 
 """
 Change your script so it prints the names of all cities which have a
@@ -72,6 +97,54 @@ with open("large_cities.txt", "w") as out:
             if pop > 10**7:
                 out.write("{}, {}: population {}\n".format(city,country,pop))
 print("See large_cities.txt")
+
+
+"""
+Read rubgy_world_cup_20151.csv
+Write rubgy_veterans.csv with only the rows with players over 30.
+"""
+with open('rugby_world_cup_20151.csv') as file:
+    with open('rubgy_veterans.csv', 'w') as out:
+        header = file.readline()
+        out.write(header)
+
+        for line in file:
+            data = line.strip().split(',')
+            age = int(data[4])
+            name = data[1]
+            if age > 30:
+                print('{} ({})'.format(name, age))
+                out.write(line)
+
+
+"""     .                 .                 .
+       ,O,               ,O,               ,O,
+      ,OOO,             ,OOO,             ,OOO,
+'oooooOOOOOooooo' 'oooooOOOOOooooo' 'oooooOOOOOooooo'
+  `OOOOOOOOOOO`     `OOOOOOOOOOO`     `OOOOOOOOOOO`
+    `OOOOOOO`         `OOOOOOO`         `OOOOOOO`
+    OOOO'OOOO         OOOO'OOOO         OOOO'OOOO
+   OOO'   'OOO       OOO'   'OOO       OOO'   'OOO
+  O'         'O     O'         'O     O'         'O
+"""
+
+"""
+Parse fasta.txt into a dictionary with identifier:sequence
+    { "Desulfitobacterium...":"ACTTGA...", "Clostridium...":"AGAGTTTGA..." }
+"""
+fasta = {}
+with open("fasta.txt") as f:
+    identifier = ""
+    seq = ""
+    for line in f:
+        if line[0] == ">":
+            if identifier != "":
+                fasta[identifier] = seq
+                seq =""
+            identifier = line.strip()[1:]
+        else:
+            seq += line.strip()
+    print(fasta)
 
 
 """
@@ -128,8 +201,7 @@ print(check_spelling_file("edward_lear.txt"))
 
 
 """
-(Bonus). Improve your spellchecker: It doesn’t handle uppercase or
-punctuation well. Fix it.
+Improve your spellchecker: It doesn’t handle uppercase or punctuation well. Fix it.
 """
 dic2 = [word.lower() for word in dic]
 
@@ -146,40 +218,3 @@ def check_spelling_file2(filename):
     return [word for word in words if not check_spelling2(word)]
 
 print(check_spelling_file2("edward_lear.txt"))
-
-
-"""
-Read rubgy_world_cup_20151.csv
-Write rubgy_veterans.csv with only the rows with players over 30.
-"""
-with open('rugby_world_cup_20151.csv') as file:
-    with open('rubgy_veterans.csv', 'w') as out:
-        header = file.readline()
-        out.write(header)
-
-        for line in file:
-            data = line.strip().split(',')
-            age = int(data[4])
-            name = data[1]
-            if age > 30:
-                print('{} ({})'.format(name, age))
-                out.write(line)
-
-
-"""
-Parse fasta.txt into a dictionary with identifier:sequence
-    { "Desulfitobacterium...":"ACTTGA...", "Clostridium...":"AGAGTTTGA..." }
-"""
-fasta = {}
-with open("fasta.txt") as f:
-    identifier = ""
-    seq = ""
-    for line in f:
-        if line[0] == ">":
-            if identifier != "":
-                fasta[identifier] = seq
-                seq =""
-            identifier = line.strip()[1:]
-        else:
-            seq += line.strip()
-    print(fasta)

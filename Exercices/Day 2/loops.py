@@ -1,5 +1,16 @@
 import math
 
+"""     .
+       ,O,
+      ,OOO,
+'oooooOOOOOooooo'
+  `OOOOOOOOOOO`
+    `OOOOOOO`
+    OOOO'OOOO
+   OOO'   'OOO
+  O'         'O
+"""
+
 """
 Ask for user input. If the input contains "ni" print "NI!"
 """
@@ -9,11 +20,11 @@ if 'ni' in x:
 
 
 """
-Ask for user input. If the input contains "cat" print "I like cats too!"
-otherwise print "I don't like cats either!"
+Ask for user input. If the input is "cat" print "I like cats too!"
+otherwise print "I don't like cats amyway!"
 """
 x = input("Tell me something about felines: ")
-if 'cat' in x:
+if x == 'cat':
     print("I like cats too!")
 else:
     print("I don't like cats either!")
@@ -22,7 +33,6 @@ else:
 Ask the age of the user via input. If the user is below 20. praise them
 about their youth, otherwise if they are below 30, praise them about their
 maturity, otherwise praise them about their wisdom.
-Hint: don;t forget to converts the string input to int
 """
 age = int(input("How old are you?" ))
 if age < 20:
@@ -31,7 +41,6 @@ elif age < 30:
     print("You are so mature!")
 else:
     print("You are so wise!")
-
 
 """
 Set x to 1. Keep doubling it until it becomes bigger than 1000. print x
@@ -52,42 +61,94 @@ while x <= 1000:
     n += 1
 print(x, n)
 
-
 """
 Create a list that contains the first 100 square numbers and print it
 """
-# x = [i**2 for i in range(1,101)]
 x = []
 for i in range(1,101):
     x.append(i**2)
 print(x)
 
-
-
 """
 Create a list that contains all pairs (i, j) for i, j between 1 and 5
 """
-#x = [(i, j) for i in range(1,6) for j in range(1,6)]
 x = []
 for i in range(1,6):
     for j in range(1,6):
         x.append((i, j))
 print(x)
 
-
 """
-Create a list with all the positive values of sin(i), for i between 1 and 100.
-How many values are there?
+How many values of sin(i) are positive, for all 'i' between 1 and 100?
 Hint: use math.sin()
 """
-#x = [ math.sin(i) for i in range(1,101) if math.sin(i) > 0]
-# print("There are {} positive values".format(len(x)))
 c = 0
 for i in range(1,101):
     if math.sin(i) > 0:
         c += 1
 print("There are {} positive values".format(c))
 
+"""
+You’re a cop, and you know what that means: you love doughnuts. I mean, you
+really, really love doughnuts. Throughout your day, you stop by every doughnut
+shop in town and you pick up one doughnut more than you picked up in the previous
+shop. For example: at the first shop, you pick up one doughnut. At the second
+shop, you pick up two. At the third shop you pick up three, and so on.
+How many donuts will you eat in a single day?
+Hint: use enumerate
+"""
+shops = ["Krispy Kreme", "dunkin’ donuts", "Nuts of Dough", \
+         "Dough-natto", "Doug’s Donuts", "Dough"]
+donuts = 0
+for n, _ in enumerate(shops):
+    donuts += n + 1
+print(donuts)
+
+
+"""     .                 .
+       ,O,               ,O,
+      ,OOO,             ,OOO,
+'oooooOOOOOooooo' 'oooooOOOOOooooo'
+  `OOOOOOOOOOO`     `OOOOOOOOOOO`
+    `OOOOOOO`         `OOOOOOO`
+    OOOO'OOOO         OOOO'OOOO
+   OOO'   'OOO       OOO'   'OOO
+  O'         'O     O'         'O
+"""
+
+"""
+Create a list that contains the first 100 square numbers using list comprehensions
+"""
+x = [i**2 for i in range(1,101)]
+print(x)
+
+
+"""
+Create a list that contains all pairs (i, j) for i, j between 1 and 5 using
+list comprehensions
+"""
+x = [(i, j) for i in range(1,6) for j in range(1,6)]
+print(x)
+
+"""
+How many values of sin(i) are positive, for all 'i' between 1 and 100?
+Use list comprehensions.
+Hint: use math.sin()
+"""
+x = [ math.sin(i) for i in range(1,101) if math.sin(i) > 0]
+print("There are {} positive values".format(len(x)))
+
+"""
+Cut the string s in a list of chuncks of 3 characters:
+    ['Wha', 't a ', 're ' ... ]
+"""
+s = "What are you doing with this knife? Stay away!"
+
+chunks = []
+while len(s) > 0:
+    chunks.append(s[:3])
+    s = s[3:]
+print(chunks)
 
 """
 Parse csv and save the values of the columns into three lists:
@@ -113,20 +174,47 @@ for row in rows:
 print(names, ages, heights)
 
 
+"""     .                 .                 .
+       ,O,               ,O,               ,O,
+      ,OOO,             ,OOO,             ,OOO,
+'oooooOOOOOooooo' 'oooooOOOOOooooo' 'oooooOOOOOooooo'
+  `OOOOOOOOOOO`     `OOOOOOOOOOO`     `OOOOOOOOOOO`
+    `OOOOOOO`         `OOOOOOO`         `OOOOOOO`
+    OOOO'OOOO         OOOO'OOOO         OOOO'OOOO
+   OOO'   'OOO       OOO'   'OOO       OOO'   'OOO
+  O'         'O     O'         'O     O'         'O
 """
-Cut the string s in a list of chuncks of 3 characters:
-    ['Wha', 't a ', 're ' ... ]
-"""
-s = "What are you doing with this knife? Stay away!"
-
-chunks = []
-while len(s) > 0:
-    chunks.append(s[:3])
-    s = s[3:]
-print(chunks)
-
 
 """
+Save in a list the characters that are the same on the same index between
+s1 and s2. Print the string of conjoined characters.
+Hint: lookup the function zip
+"""
+s1 = "I think < minus 3 stop until tsar do happening"
+s2 = "I lost :<> pop :3 see murderous thoughts trip inside"
+s3 = "".join([ a for a,b in zip(s1,s2) if a==b])
+print(s3)
+
+
+"""
+Write a script that reads the table in tsv, and prints the content of
+each column, in the following way:
+    header1:		nameA, nameB
+    header2:		sampleA, sampleB
+    header3:		experimentA, experimentB
+"""
+tsv = """# this is a comment line
+# this is another comment line
+header1\theader2\theader3
+nameA\tsampleA\texperimentA
+nameB\tsampleB\texperimentB"""
+
+splits = [line.split("\t") for line in tsv.split("\n") if line[0]!="#"]
+for x in zip(*splits):
+    print(x[0], ":\t",", ".join(x[1:]))
+
+
+"""fasta parsing
 Write a script that prints the identifier of fasta (after the “>”),
 prints the length of the AA sequence, and prints the number of tryptophan
 AAs (W) in the sequence.
@@ -160,32 +248,3 @@ for line in fasta.split("\n"):
 
 print("Length of sequence:", len(seq))
 print("Number of W:", seq.count("W"))
-
-
-"""
-Save in a list the characters that are the same on the same index between
-s1 and s2. Print the string of conjoined characters.
-Hint: lookup the function zip
-"""
-s1 = "I think < minus 3 stop until tsar do happening"
-s2 = "I lost :<> pop :3 see murderous thoughts trip inside"
-s3 = "".join([ a for a,b in zip(s1,s2) if a==b])
-print(s3)
-
-
-"""
-Write a script that reads the table in tsv, and prints the content of
-each column, in the following way:
-    header1:		nameA, nameB
-    header2:		sampleA, sampleB
-    header3:		experimentA, experimentB
-"""
-tsv = """# this is a comment line
-# this is another comment line
-header1\theader2\theader3
-nameA\tsampleA\texperimentA
-nameB\tsampleB\texperimentB"""
-
-splits = [line.split("\t") for line in tsv.split("\n") if line[0]!="#"]
-for x in zip(*splits):
-    print(x[0], ":\t",", ".join(x[1:]))

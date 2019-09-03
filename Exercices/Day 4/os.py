@@ -1,7 +1,36 @@
 import os
 
+"""     .
+       ,O,
+      ,OOO,
+'oooooOOOOOooooo'
+  `OOOOOOOOOOO`
+    `OOOOOOO`
+    OOOO'OOOO
+   OOO'   'OOO
+  O'         'O
 """
-In the folder files and all of its subfolders, replace all spaces from all
+
+"""
+Print the names of all the files in the "files" folder
+"""
+for root, dirs, files in os.walk("files"):
+    for file in files:
+        print(file)
+
+"""     .                 .
+       ,O,               ,O,
+      ,OOO,             ,OOO,
+'oooooOOOOOooooo' 'oooooOOOOOooooo'
+  `OOOOOOOOOOO`     `OOOOOOOOOOO`
+    `OOOOOOO`         `OOOOOOO`
+    OOOO'OOOO         OOOO'OOOO
+   OOO'   'OOO       OOO'   'OOO
+  O'         'O     O'         'O
+"""
+
+"""
+In the folder "files/moreFiles" and all of its subfolders, replace all spaces from all
 the text files names into underscores. Ex: 001 740.txt => 001_740.txt
 """
 for root, dirs, files in os.walk("files"):
@@ -22,7 +51,7 @@ for root, dirs, files in os.walk("files"):
 
 
 """
-for each name in “order.txt”, make a numbered directory
+for each name in “files/order.txt”, make a numbered directory
     Ex: “01 - John Doe”
 """
 with open("order.txt","r") as f:
