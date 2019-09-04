@@ -54,6 +54,8 @@ def write_FASTA(dic, filepath):
                 f.write(seq[:70] + "\n")            # write 70 characters
                 seq = seq[70:]                      # cuts the 70 charachers
 
+
+# Read all the sequences in data/raw/ and aggregate them in one dictionary
 raw_data_path = "data/raw/"
 species = {}
 for root, dirs, files in os.walk(raw_data_path):
@@ -63,18 +65,26 @@ for root, dirs, files in os.walk(raw_data_path):
             species.update(tmp) # Adding the values of tmp to d
 
 def filter_function(header):
+    """
+    filter function checks if the words "fungi" or "Bacillus" are in
+    header.
+    Input: header - String: name of the sequence of a FASTA species
+    Returns: Bool
+    """
     return "fungi" in header or "Bacillus" in header
 
 print("\nRaw sequences before filtering:")
 for h in species:
     print(h)
 
+# Filter the species
 species = filter_FASTA(species, filter_function)
 
 print("\nRaw sequences after filtering:")
 for h in species:
     print(h)
 
+# Write the filtered species in a file
 query_path = "data/MyQuery.fa"
 write_FASTA(species, query_path)
 print("\nQuery FASTA file written in {}.".format(query_path))
