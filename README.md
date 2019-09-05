@@ -13,8 +13,8 @@ Steps to get things to work
 
 3. Run `module load python/3.5.2`
 
-4. Run `python3 main.py`
+4. Run `python3 fasta.py`
 
-5. Run `sbatch data/blastjob.slurm`
+5. Run `sbatch blastjob.slurm`
 
 6. Run `python3 analysis.py`
