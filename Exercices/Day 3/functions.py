@@ -226,7 +226,7 @@ def zipf(text):
         text (string) -- A large string.
 
     Returns:
-        Dictionary (string: int) -- Dictionary of (letter: frequency) pairs."""
+        Dictionary (string: int) -- Dictionary of (word: frequency) pairs."""
 
     from collections import Counter
     return Counter(text.split())

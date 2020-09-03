@@ -133,10 +133,11 @@ results = """
 # Database: data/database/My16sAmplicon
 # Fields: query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
 # 513 hits found
-Bacterium_levoglucosan-1(Bacillus)\tgi|295702242:9181-10722\t97.42\t1396\t32\t4\t1\t1394\t62\t1455\t0.0\t2375
-Bacterium_levoglucosan-1(Bacillus)\tgi|294496875:9180-10721\t97.35\t1396\t33\t4\t1\t1394\t62\t1455\t0.0\t2370
-Bacterium_levoglucosan-1(Bacillus)\tgi|384044176:356446-357987\t97.35\t1396\t33\t4\t1394\t62\t1455\t0.0\t2370
-Bacterium_levoglucosan-1(Bacillus)\tgi|488570484:10449-11988\t94.73\t1386\t62\t1014\t1394\t74\t1453\t0.0\t2145
+Desulfitobacterium	gi|89892746:237000-238653	100.00	1654	0	0	1	1654	1	1654	0.0	 3055
+Desulfitobacterium	gi|219666071:171925-173480	99.18	1462	12	0	193	1654	95	1556	0.0	 2634
+Desulfitobacterium	gi|219666071:171925-173480	100.00	64	0	0	1	64	1	64	2e-27	  119
+Desulfitobacterium	gi|431792069:96688-98341	94.54	1668	63	20	1	1654	1	1654	0.0	 2551
+Desulfitobacterium	gi|392391692:134647-136203	97.06	1463	42	1	193	1654	95	1557	0.0	 2462
 # BLASTN 2.2.30+
 # Query: Aspergillus_sp._HX-2006f(fungi)
 # Database: data/database/My16sAmplicon
